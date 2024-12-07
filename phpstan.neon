@@ -1,0 +1,13 @@
+
+includes:
+  - ./vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+  level: max
+  paths:
+    - src
+    - tests
+  excludePaths:
+    - src/Generator/Template
+  ignoreErrors:
+    - '#^Method CM0102Data\\Nations::getNationsByCode\(\) should return array<string, string> but returns mixed\.$#'

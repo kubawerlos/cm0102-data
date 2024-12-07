@@ -1,0 +1,6 @@
+/.* export-ignore
+/data/ export-ignore
+/src/Generator/ export-ignore
+/tests/ export-ignore
+/generate.php export-ignore
+/phpstan.neon export-ignore

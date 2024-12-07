@@ -1,0 +1,27 @@
+name: CI
+on:
+  pull_request: ~
+  push: ~
+jobs:
+  verify:
+    name: PHP ${{ matrix.php-version }} ${{ matrix.description }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - description: 'with the lowest dependencies'
+            php-version: '8.4'
+            composer_flags: '--prefer-lowest'
+          - php-version: '8.4'
+          - php-version: '8.5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: none, curl, dom, mbstring, tokenizer, xml, xmlwriter
+      - run: composer update --no-progress ${{ matrix.composer_flags }}
+      - run: composer verify
+        env:
+          PHP_CS_FIXER_IGNORE_ENV: 1

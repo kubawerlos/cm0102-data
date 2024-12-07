@@ -1,0 +1,40 @@
+{
+    "name": "kubawerlos/cm0102-data",
+    "description": "Data based on game data of Championship Manager 01/02",
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "kubawerlos/php-cs-fixer-config": "^4.3",
+        "phpstan/extension-installer": "^1.4.3",
+        "phpstan/phpstan": "^2.0.3",
+        "phpstan/phpstan-phpunit": "^2.0.1",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpunit/phpunit": "^11.5.0",
+        "symfony/filesystem": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "CM0102Data\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "scripts": {
+        "verify": [
+            "php-cs-fixer fix -vvv --diff --dry-run",
+            "phpstan analyse",
+            "phpunit --no-configuration ./tests"
+        ]
+    }
+}
