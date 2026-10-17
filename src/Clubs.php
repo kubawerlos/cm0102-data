@@ -105,7 +105,7 @@ final readonly class Clubs
         'Mochudi Center Chief' => 'Mochudi Center Chiefs',
         'Mogoditshane Fighter' => 'Mogoditshane Fighters',
         'National Police Stat' => 'National Police Station',
-        'Neftyanik Goryachiy ' => 'Neftyanik Goryachiy Klyuc',
+        'Neftyanik Goryachiy' => 'Neftyanik Goryachiy Klyuc',
         'Neftyanik Pokhvistne' => 'Neftyanik Pokhvistnevo',
         'Nepal Football Acade' => 'Nepal Football Academy',
         'North-Eastern MetroS' => 'North-Eastern MetroStars',

@@ -28,7 +28,7 @@ final class ClubsTest extends TestCase
         $truncatedNames = new \ReflectionClass(Clubs::class)->getConstant('TRUNCATED_NAMES');
 
         foreach ($truncatedNames as $truncatedName => $name) {
-            self::assertSame(20, \mb_strlen($truncatedName));
+            self::assertSame(\mb_rtrim(\mb_substr($name, 0, 20)), $truncatedName);
             self::assertGreaterThan(20, \mb_strlen($name));
         }
     }
@@ -80,6 +80,14 @@ final class ClubsTest extends TestCase
         );
     }
 
+    public function testGettingLongNameAndNationForTruncatedShortNameWithoutTrailingSpace(): void
+    {
+        self::assertSame(
+            ['Neftyanik Goryachiy Klyuch', 'Russia'],
+            Clubs::getLongNameAndNationForShortName('Neftyanik Goryachiy'),
+        );
+    }
+
     public function testGettingLongNameAndNationForShortNameSameAsTruncatedNameOfAnotherClub(): void
     {
         self::assertSame(
@@ -125,6 +133,14 @@ final class ClubsTest extends TestCase
         self::assertSame(
             'Estudiantes de Mérida Fútbol Club',
             Clubs::getLongNameForShortNameAndNation('Estudiantes de Mérid', 'Venezuela'),
+        );
+    }
+
+    public function testGettingLongNameForTruncatedShortNameWithoutTrailingSpaceAndCorrectNation(): void
+    {
+        self::assertSame(
+            'Neftyanik Goryachiy Klyuch',
+            Clubs::getLongNameForShortNameAndNation('Neftyanik Goryachiy', 'Russia'),
         );
     }
 

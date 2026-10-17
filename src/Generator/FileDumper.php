@@ -26,7 +26,7 @@ final readonly class FileDumper
             if (\mb_strlen($name) <= 20) {
                 continue;
             }
-            $truncatedName = \mb_substr($name, 0, 20);
+            $truncatedName = \mb_rtrim(\mb_substr($name, 0, 20));
             if (isset($clubs[$truncatedName])) {
                 continue;
             }
