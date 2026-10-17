@@ -26,7 +26,11 @@ final readonly class FileDumper
             if (\mb_strlen($name) <= 20) {
                 continue;
             }
-            $truncatedNames[\mb_substr($name, 0, 20)] = $name;
+            $truncatedName = \mb_substr($name, 0, 20);
+            if (isset($clubs[$truncatedName])) {
+                continue;
+            }
+            $truncatedNames[$truncatedName] = $name;
         }
 
         $php = self::getTemplateCode('Clubs');

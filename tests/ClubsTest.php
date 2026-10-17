@@ -80,6 +80,14 @@ final class ClubsTest extends TestCase
         );
     }
 
+    public function testGettingLongNameAndNationForShortNameSameAsTruncatedNameOfAnotherClub(): void
+    {
+        self::assertSame(
+            ['Club Deportivo Universidad Católica', 'Chile'],
+            Clubs::getLongNameAndNationForShortName('Universidad Católica'),
+        );
+    }
+
     public function testGettingLongNameAndNationForShortNameHavingMultipleNations(): void
     {
         self::expectException(\RuntimeException::class);
@@ -117,6 +125,14 @@ final class ClubsTest extends TestCase
         self::assertSame(
             'Estudiantes de Mérida Fútbol Club',
             Clubs::getLongNameForShortNameAndNation('Estudiantes de Mérid', 'Venezuela'),
+        );
+    }
+
+    public function testGettingLongNameForShortNameSameAsTruncatedNameOfAnotherClubAndCorrectNation(): void
+    {
+        self::assertSame(
+            'Club Deportivo Universidad Católica',
+            Clubs::getLongNameForShortNameAndNation('Universidad Católica', 'Chile'),
         );
     }
 }

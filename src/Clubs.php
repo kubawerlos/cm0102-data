@@ -147,7 +147,6 @@ final readonly class Clubs
         'Tefekkur Universites' => 'Tefekkur Universitesi',
         'Titan Zheleznodorozh' => 'Titan Zheleznodorozhny',
         'Trans Ethiopia of Me' => 'Trans Ethiopia of Mekele',
-        'Universidad Católica' => 'Universidad Católica B',
         'Universidad de Conce' => 'Universidad de Concepción',
         'Universidad de Hondu' => 'Universidad de Honduras',
         'Universidad de los A' => 'Universidad de los Andes',
